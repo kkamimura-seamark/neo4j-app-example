@@ -1,0 +1,9 @@
+spring:
+  data:
+    neo4j:
+      uri:src/test/neo4j/sample.db
+  jackson:
+    dateFormat: yyyy-MM-dd'T'HH:mm:ss'Z'
+    time-zone: Asia/Tokyo
+
+logging.level.: DEBUG

@@ -1,0 +1,5 @@
+spring:
+  data:
+    neo4j:
+      uri: http://neo4j:password@localhost:7474
+// uri: file://~/neo4j-db/sample.db
