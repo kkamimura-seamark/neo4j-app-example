@@ -24,4 +24,9 @@ public class Match extends SimpleNode {
 	@Relationship(type="awayTeam")
 	private Team away;
 	
+	
+	public Match(String name, Date day) {
+		super(name);
+		this.day = day;
+	}
 }
