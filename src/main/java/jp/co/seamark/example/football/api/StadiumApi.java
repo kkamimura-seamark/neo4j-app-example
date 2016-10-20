@@ -12,36 +12,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.co.seamark.example.football.data.Player;
+import jp.co.seamark.example.football.data.Stadium;
 
 @RestController
-@RequestMapping(path="/football/player")
-public class PlayerApi extends ApiBase {
-
-
-
+@RequestMapping(path="/football/stadium")
+public class StadiumApi extends ApiBase {
 	@RequestMapping(method=RequestMethod.GET)
-	public Iterable<Player> getAll(){
-		return super.findAll(Player.class);
+	public Iterable<Stadium> getAll(){
+		return super.findAll(Stadium.class);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public Player newPlayer(@RequestParam String name ,@RequestParam @DateTimeFormat(pattern="yyy-MM-dd") Date birthday ,@RequestParam(required=false) String comment){
-		Player p = new Player(name, birthday);
-		Optional.ofNullable(comment).ifPresent(s->p.setComment(s));
+	public Stadium newStadium(@RequestParam String name ,String location){
+		Stadium p = new Stadium(name, location);
 		return super.put(p);
 	}
 	@RequestMapping(path="/{id}" ,method=RequestMethod.GET)
-	public Player getPlayer(@PathVariable Long id){
+	public Stadium getStadium(@PathVariable Long id){
 		return super.get(id);
 	}
 	
 	@RequestMapping(path="/{id}" ,method=RequestMethod.POST)
-	public Player updatePlayer(@PathVariable Long id, @RequestBody Player p){
-		p.setNodeId(id);
-		return super.put(p);
+	public Stadium updateStadium(@PathVariable Long id, @RequestBody Stadium t){
+		t.setNodeId(id);
+		return super.put(t);
 	}
 	@RequestMapping(path="/{id}" ,method=RequestMethod.DELETE)
-	public void deletePlayer(@PathVariable Long id){
+	public void deleteStadium(@PathVariable Long id){
 		super.remove(id);
 	}
+
 }

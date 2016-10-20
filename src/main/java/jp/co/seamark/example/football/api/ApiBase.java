@@ -16,8 +16,15 @@ public abstract class ApiBase {
 	@Autowired
 	private Neo4jOperations template;
 
+	@SuppressWarnings("unchecked")
+	protected <T extends SimpleNode> T get(Long id){
+		return (T)neo4jRepo.findOne(id);
+	}
 	protected <T extends SimpleNode> T put(T node){
 		return neo4jRepo.save(node);
+	}
+	protected void remove(Long id){
+		neo4jRepo.delete(id);
 	}
 	protected <T> Iterable<T> findAll(Class<T> claz){
 		Map<String, String> params = Collections.emptyMap();

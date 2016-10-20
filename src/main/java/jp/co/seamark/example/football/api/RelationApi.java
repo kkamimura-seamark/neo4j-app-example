@@ -14,7 +14,6 @@ import jp.co.seamark.example.football.data.Player;
 import jp.co.seamark.example.football.data.Team;
 import jp.co.seamark.example.football.data.TeamPlayer;
 import jp.co.seamark.example.football.data.store.TeamPlayerRepository;
-import jp.co.seamark.example.neo4j.SimpleNodeRepository;
 import jp.co.seamark.example.neo4j.SimpleRelationRepository;
 import jp.co.seamark.example.neo4j.node.SimpleNode;
 import jp.co.seamark.example.neo4j.relation.SimpleRelation;

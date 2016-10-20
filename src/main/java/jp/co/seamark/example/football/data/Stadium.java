@@ -14,5 +14,9 @@ import lombok.RequiredArgsConstructor;
 public class Stadium extends SimpleNode {
 	@NonNull
 	private String location;
-	
+
+	public Stadium(String name, String location) {
+		super(name);
+		this.location = location;
+	}
 }

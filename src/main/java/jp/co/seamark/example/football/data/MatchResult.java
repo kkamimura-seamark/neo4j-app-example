@@ -15,18 +15,18 @@ import lombok.RequiredArgsConstructor;
 @EqualsAndHashCode(callSuper=true)
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Match extends SimpleNode {
+public class MatchResult extends SimpleNode {
 	@NonNull
-	private Date day;
-	
-	@Relationship(type="homeTeam")
-	private Team home;
-	@Relationship(type="awayTeam")
-	private Team away;
-	
-	
-	public Match(String name, Date day) {
+	@Relationship(type="result")
+	private Match match;
+	@NonNull
+	private Date kickoff;
+	@NonNull
+	private Long homeTeamScore;
+	@NonNull
+	private Long awayTeamScore;
+	public MatchResult(String name, Match match) {
 		super(name);
-		this.day = day;
+		this.match = match;
 	}
 }
